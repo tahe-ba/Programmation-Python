@@ -1,5 +1,8 @@
-quitter = 'F'
-while quitter != 'T' :
+# Calcule PrixTTC 
+# Accepting only valid input 
+# Asking before quit
+exit = 'F'
+while exit != 'T' :
     while True :
         try :
             prix=float(input("prix HT="))
@@ -22,4 +25,4 @@ while quitter != 'T' :
             print("Wrong input")
     prixttc=prix+(tva*prix)
     print(prixttc)
-    quitter=input("if you want tou quit type T: ")
+    exit=input("if you want tou quit type T: ")

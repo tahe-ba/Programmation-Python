@@ -1,3 +1,4 @@
+# Find how many numbers are even and how many are odd in a sequenece of inputs without arrays
 while True :
         try :
             n=int(input("combien d'entier vous aller entrer: "))
