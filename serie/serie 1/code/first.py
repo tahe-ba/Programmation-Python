@@ -24,5 +24,7 @@ while exit != 'T' :
         except ValueError:
             print("Wrong input")
     prixttc=prix+(tva*prix)
-    print(prixttc)
+    print("Le prix ttc de votre prix ht est : %.2f est %.2f"%(prix, prixttc))
+    # print("Le prix ttc de votre prix ht est : {:.2f} est {:.2f}".format(prix, prixttc))
+
     exit=input("if you want tou quit type T: ")
