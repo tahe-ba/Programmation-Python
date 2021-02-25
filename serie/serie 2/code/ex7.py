@@ -11,7 +11,6 @@ def main():
 
 def menu():
     print("### MAIN MENU ###")
-    print()
     while True:
         try:
             choice = int(
