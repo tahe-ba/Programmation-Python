@@ -10,7 +10,7 @@ while continuer_partie:
     bet = -1
     while bet < 0 or bet > 999: 
         try: 
-            bet = int(input("\nChoisissez un nombre sur lequel vous voulez miser (entre 0 et 999) : "))
+            bet = int(input("\nChoisissez un nombre sur lequel vous voulez miser [0 .. 999] : "))
         except ValueError: 
             print("Aucun nombre saisie")
             bet = -1
