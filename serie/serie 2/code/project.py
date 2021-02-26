@@ -6,7 +6,7 @@ wallet = 1000
 continuer_partie = True 
 
 while continuer_partie :
-    print("\n#### round (",i,")####")
+    print("\n####round(",i,")####")
     i+=1
     print("vous avez "+str(wallet)+" dans vos poche")
     while True: 
@@ -59,8 +59,8 @@ while continuer_partie :
     if wallet <= 0: 
         print("poche vide vous avez perdu")
         continuer_partie = False
-    
-    quitter = input("Si vous voulez quitter tapez o : ")
-    if quitter == "o" or quitter == "O": 
-            print("Vous quittez le casino avec vos gains.",wallet)
-            continuer_partie = False
+    else :
+        quitter = input("il vous reste "+str(wallet)+"\n\nSi vous voulez quitter tapez o : ")
+        if quitter == "o" or quitter == "O": 
+                print("Vous quittez avec vos gains.",wallet)
+                continuer_partie = False
