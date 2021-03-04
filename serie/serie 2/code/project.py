@@ -24,12 +24,12 @@ continuer_partie = True  # pourquoi continuer a jouer
 
 while continuer_partie:
     clear()
-    print("\n\tround(", i, ")", "\t\t" + str(wallet) + "$")
+    print("\n\tTour(", i, ")", "\t\t" + str(wallet) + "$")
     i += 1
 
     #input bet
     bet = -1
-    while bet < 0 or bet > chances:
+    while bet < 0 or bet > chances:tround
         try:
             bet = int(
                 input(
