@@ -17,7 +17,6 @@ def color(n):
         couleur = "rouge"
     return couleur
 
-
 chances = 1000  # le domaine du randrange
 i = 1  # combien de tour
 wallet = 1000  # argent du depart
@@ -81,7 +80,7 @@ while continuer_partie:
     if win == bet:
         print("\nVous avez gagnez ", mise * 3)
         wallet += mise * 3
-    elif win % 2 is bet % 2:
+    elif win % 2 == bet % 2:
         print(
             "Vous avez misé sur la couleur",
             str(color(bet)),
