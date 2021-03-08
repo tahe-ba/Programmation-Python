@@ -12,6 +12,6 @@ def dernier(n):
 #print(dernier(l[0]))
 #print(dernier(l))
 print (l)
-ls=sorted(l, key = dernier)
+ls=sorted(l, key = dernier,reverse=False)
 print (ls)
 
