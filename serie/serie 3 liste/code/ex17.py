@@ -5,7 +5,6 @@ l2=[1,2,3]
 d=[]
 
 for x in l1:
-        for y in l2:
-            if x != y:
-                d.append(x)
+        if x in l2:
+            d.append(x)
 print(d)

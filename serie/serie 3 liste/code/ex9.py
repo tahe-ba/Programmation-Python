@@ -5,6 +5,10 @@ from a givenlist of words.
 li = []
 li = [item for item in input("Enter the words seperated by space: ").split()] 
 
+msg=input("text= ")
+txt=msg.split(" ")
+print (txt)
+
 print (li)
 n=int(input("longueur de mot "))
 
