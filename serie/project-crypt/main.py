@@ -104,27 +104,18 @@ def clef() :
 
 def chiffrer_letter(letter, is_upper,decaler):
     if is_upper:
-        a = 65
-        z = 90
+        l=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     else:
-        a = 97
-        z = 122
+        l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    return l[l.index(letter)+(decaler%26)]
 
-    ord_t = ord(letter)+decaler
-    new_ord = (ord_t - z - 1)%26
-    return chr(a + new_ord)
     
 def dechiffrer_letter(letter, is_upper,decaler):
     if is_upper:
-        a = 65
-        z = 90
+        l=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     else:
-        a = 97
-        z = 122
-
-    ord_t = ord(letter)-decaler
-    new_ord = (ord_t - z - 1)%26
-    return chr(a + new_ord)
+        l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    return l[l.index(letter)-(decaler%26)]
 
 def chiffrement():
     print('''
@@ -135,7 +126,6 @@ def chiffrement():
     c=clef()
     msg=input("Message à chiffrer: ")
     crypted=list()
-    up=True
     for letter in msg :
         if letter.isalpha() :
             up= letter.isupper()
@@ -156,7 +146,6 @@ def dechiffrement():
     c=clef()
     msg=input("Message à dechiffrer: ")
     decrypted=list()
-    up=True
     for letter in msg :
         if letter.isalpha() :
             up= letter.isupper()
