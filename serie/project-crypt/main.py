@@ -1,25 +1,5 @@
-'''
-1-codage
-    coder en base 64
-    decoder en base64
-    retour au menu principal
-      principe
-        Take the ASCII value of each character in the string
-        Calculate the 8-bit binary equivalent of the ASCII values
-        Convert the 8-bit chunks into chunks of 6 bits by simply re-grouping the digits
-        Convert the 6-bit binary groups to their respective decimal values.
-        Using a base64 encoding table, assign the respective base64 character for each decimal value.
-2-chiffrement
-    chiffrer par un decalage dun clef
-    dechiffrement par un decalage dun clef
-    retour au menu principal
-      principe
-        take a string 
-        each letter will be replaced with the n_th letter after it exemple a -> d , aaa -> ddd for n=3 
-        all characters other than letters are kept the same
-3-quitter
-'''
 from os import system, name
+import sys
 import base64
     
 def clear():
@@ -44,7 +24,7 @@ def code64():
     base64_bytes = base64.b64encode(msg_bytes)
     coded = base64_bytes.decode('ascii')
     print("\nMessage codé:",coded)
-
+    print("")
     codage()
 
 def decode64():
@@ -58,13 +38,15 @@ def decode64():
     msg_bytes = base64.b64decode(base64_bytes)
     decoded = msg_bytes.decode('ascii')
     print("\nMessage décodé:",decoded)
+    print("")
     codage()
 
 def codage():
-    print(''' \t+-+-+-+-+-+-+
+    while True:
+        print(''' 
+ \t+-+-+-+-+-+-+
  \t|c|o|d|a|g|e|
  \t+-+-+-+-+-+-+''')
-    while True:
         try:
             choice = int(
                 input(
@@ -87,7 +69,6 @@ def codage():
         menu()
     else:
         print("Mauvais choix")
-        print("")
         codage()
 
 def clef() :
@@ -108,8 +89,7 @@ def chiffrer_letter(letter, is_upper,decaler):
     else:
         l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     return l[l.index(letter)+(decaler%26)]
-
-    
+  
 def dechiffrer_letter(letter, is_upper,decaler):
     if is_upper:
         l=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -117,7 +97,7 @@ def dechiffrer_letter(letter, is_upper,decaler):
         l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     return l[l.index(letter)-(decaler%26)]
 
-def chiffrement():
+def chiffrer():
     print('''
  +-+-+-+-+-+-+-+-+
  |c|h|i|f|f|r|e|r|
@@ -135,9 +115,9 @@ def chiffrement():
             crypted.append(letter)
     crypted=''.join(crypted)
     print ("\nMessage chiffré:",crypted)
-    chiffrer()
+    chiffrement()
 
-def dechiffrement():
+def dechiffrer():
     print('''
  +-+-+-+-+-+-+-+-+-+-+
  |d|e|c|h|i|f|f|r|e|r|
@@ -155,14 +135,14 @@ def dechiffrement():
             decrypted.append(letter)
     decrypted=''.join(decrypted)
     print ("\nMessage déchiffré:",decrypted)
-    chiffrer()
+    chiffrement()
 
-def chiffrer():
-    print('''
+def chiffrement():
+    while True:
+        print('''
  \t+-+-+-+-+-+-+-+-+-+-+-+
  \t|C|H|I|F|F|R|E|M|E|N|T|
  \t+-+-+-+-+-+-+-+-+-+-+-+''')
-    while True:
         try:
             choice = int(
                 input(
@@ -178,23 +158,21 @@ def chiffrer():
         except ValueError:
             print("Entrer invalide")
     if choice == 1:
-        chiffrement()
+        chiffrer()
     elif choice == 2:
-        dechiffrement()
+        dechiffrer()
     elif choice == 3:
         menu()
     else:
         print("Mauvais choix")
-        print("")
-        codage()
+        chiffrement()
 
 def quit():
     sure=input("\n\t Si vous voulez quitter tapez 'o' : ")
     if sure == 'o' or sure == 'O' :
-        pass
+        sys.exit
     else :
         menu()
-    # sys.exit
 
 def menu():
     clear()
@@ -215,16 +193,14 @@ def menu():
             )
             break
         except ValueError:
-            print("Entrer invalide")
+            menu()
     if choice == 1:
         codage()
     elif choice == 2:
-        chiffrer()
+        chiffrement()
     elif choice == 3:
         quit()
     else:
-        print("Mauvais choix")
-        print("")
         menu()
     
 main()
