@@ -88,14 +88,16 @@ def chiffrer_letter(letter, is_upper,decaler):
         l=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     else:
         l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    return l[l.index(letter)+(decaler%26)]
+    crypted_index = (l.index(letter)+(decaler%26))%26
+    return l[crypted_index]   
   
 def dechiffrer_letter(letter, is_upper,decaler):
     if is_upper:
         l=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     else:
         l=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    return l[l.index(letter)-(decaler%26)]
+    decrypted_index = (l.index(letter)-(decaler%26))%26
+    return l[decrypted_index]
 
 def chiffrer():
     print('''
